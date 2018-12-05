@@ -1,6 +1,7 @@
-# A Survey of Transport Security Protocols
+# A Loss-Latency Trade-off signal for the Mobile Network
 
-This is the working area for the Individual internet-draft, "A Survey of Transport Security Protocols".
+This is the working area for the Individual internet-draft, "A Loss-Latency
+Trade-off Signal for the Mobile Network".
 
 ## Building the Draft
 
@@ -18,21 +19,21 @@ instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETU
 
 Before submitting feedback, please familiarize yourself with our current issues
 list and review the [working group
-documents](https://datatracker.ietf.org/wg/post/documents/) and [mailing
-list discussion](https://mailarchive.ietf.org/arch/browse/post/). If you're
-new to this, you may also want to read the [Tao of the
+documents](https://datatracker.ietf.org/wg/post/documents/) and [mailing list
+discussion](https://mailarchive.ietf.org/arch/browse/post/). If you're new to
+this, you may also want to read the [Tao of the
 IETF](https://www.ietf.org/tao.html).
 
 Be aware that all contributions to the specification fall under the "NOTE WELL"
 terms outlined below.
 
 1. The best way to provide feedback (editorial or design) and ask questions is
-sending an e-mail to our mailing list
-([info](https://www.ietf.org/mailman/listinfo/post)). This will ensure that
-the entire Working Group sees your input in a timely fashion.
+   sending an e-mail to our mailing list
+   ([info](https://www.ietf.org/mailman/listinfo/post)). This will ensure that
+   the entire Working Group sees your input in a timely fashion.
 
 2. If you have **editorial** suggestions (i.e., those that do not change the
-meaning of the specification), you can either:
+   meaning of the specification), you can either:
 
   a) Fork this repository and submit a pull request; this is the lowest
   friction way to get editorial changes in.
@@ -46,8 +47,8 @@ meaning of the specification), you can either:
   quick editorial suggestions or questions.
 
 3. For non-editorial (i.e., **design**) issues, you can also create an issue on
-Github. However, you **must notify the mailing list** when creating such issues,
-providing a link to the issue in the message body.
+   Github. However, you **must notify the mailing list** when creating such
+   issues, providing a link to the issue in the message body.
 
   Note that **github issues are not for substantial discussions**; the only
   appropriate place to discuss design issues is on the mailing list itself.
