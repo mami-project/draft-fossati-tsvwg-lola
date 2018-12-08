@@ -70,32 +70,41 @@ informative:
 
 --- abstract
 
-todo
+This document proposes a marking scheme for tagging low-latency flows (for
+example: interactive voice and video, gaming, machine to machine applications)
+so that they can be suitably handled by the mobile network.  We suggest that
+the mobile network uses the marking to route the packet through a dedicated
+low-latency LTE bearer, e.g. QCI 7, instead of the default EPS bearer.  The
+suggested scheme re-uses a DiffServ code-point with compatible semantics that
+has been introduced in the context of fixed access to allow differential
+treatment of non-queue building vs queue building flows
+{{I-D.white-tsvwg-nqb}}.
 
 --- middle
 
 # Introduction
 
-Mobile networks are configured to actively remark or bleach DSCP coming from an
-interconnect {{Custura}}.  Besides, they typically bundle all flows to and from
-the Internet into a single default bearer, whose buffering characteristics are
-not compatible with low-latency traffic.  The established behaviour is partly
-rooted in the desire to prioritise operators' voice services over competing
-over-the-top services, but that market consideration seems to have lost
-relevance in the recent years.  It looks like the incentives are now aligned in
-the direction of allowing more suitable treatment of Internet real-time flows.
-However, a couple of preconditions need to be satisfied before we can move on
-from the status quo.  First, the real-time flows must be efficiently identified
-so that they can be put on the right queue especially nearby the bottleneck
-link, which in 4G mobile networks is typically the air interface.  (This is at
-odds with the rise of encrypted and multiplexed transports, which has the
-potential of increasing the cost/accuracy ratio of DPI over the acceptable
-threshold.)  And second, the signal must be such that the Mobile network can
-trust it or, even better, avoid the need to trust it altogether.  This document
-suggests reusing the Non Queue Building signalling protocol described in
-{{I-D.white-tsvwg-nqb}} as the explicit signal that can be used by endpoints to
-mark their real-time flows and the LTE network to use the marking to route them
-through a suitable (low-latency) bearer through the LTE core and air interface.
+Mobile networks typically bundle all flows to and from the Internet into a
+single default bearer, whose buffering characteristics are not compatible with
+low-latency traffic.  The established behaviour is partly rooted in the desire
+to prioritise operators' voice services over competing over-the-top services.
+However, that market consideration seems to have lost relevance in the recent
+years, and it looks like the incentives are now aligned in the direction of
+allowing more suitable treatment of Internet real-time flows.  However, a
+couple of preconditions need to be satisfied before we can move on from the
+status quo.  First, the real-time flows must be efficiently identified so that
+they can be put on the right queue, especially nearby the bottleneck link
+which, in LTE networks, usually coincides with the air link.  (This is
+especially important with the rising popularity of encrypted and multiplexed
+transports, that has the potential of increasing the cost/accuracy ratio of DPI
+over the acceptable threshold.) Second, because mobile networks are configured
+to actively remark or bleach DSCP coming from an interconnect {{Custura}}, the
+signal must be such that the mobile network can trust it or, even better, avoid
+the need to trust it altogether.  This document suggests reusing the Non Queue
+Building signalling protocol described in {{I-D.white-tsvwg-nqb}} as the method
+used by endpoints to mark their real-time flows and by the LTE network to use
+the marking to route these flows through a suitable (low-latency) bearer
+through the LTE core and air interface.
 
 # Terminology
 
