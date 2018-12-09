@@ -1,6 +1,6 @@
 ---
 title: A Loss-Latency Trade-off Signal for the Mobile Network
-abbrev: LoLa Tradeoff
+abbrev: Loss-Latency Tradeoff
 docname: draft-fossati-tsvwg-lola-latest
 date:
 category: std
@@ -91,8 +91,9 @@ suggest that the mobile network uses such marking to route matching packets
 through a dedicated, non-GBR, low-latency bearer - e.g., one with QCI 7 -
 instead of the default EPS bearer.  The suggested scheme re-uses NQB, a
 DiffServ-based signalling scheme with compatible semantics that has been
-introduced in the context of fixed access to allow differential treatment of
-non-queue building vs queue building flows {{I-D.white-tsvwg-nqb}}.
+recently introduced in the context of fixed access to allow differential
+treatment of non-queue building vs queue building flows
+{{I-D.white-tsvwg-nqb}}.
 
 --- middle
 
@@ -102,29 +103,30 @@ Today's mobile networks are configured to bundle all flows to and from the
 Internet into a single "default" EPS bearer whose buffering characteristics
 are not compatible with low-latency traffic.  The established behaviour is
 partly rooted in the desire to prioritise operators' voice services over
-competing over-the-top services.  Of late, this business consideration seems
-to have lost its strength and it looks like the incentives are now aligned
-towards allowing a more suitable treatment of Internet real-time flows.
-However, a couple of preconditions need to be satisfied before we can move on
-from the status quo.  First, the real-time flows must be efficiently
-identified so that they can be put onto the "right queue."  This is especially
+competing over-the-top services.  Of late, said business consideration seems
+to have lost power and it looks like the incentives are now aligned towards
+allowing a more suitable treatment of Internet real-time flows.  However, a
+couple of preconditions need to be satisfied before we can move on from the
+status quo.  First, the real-time flows must be efficiently identified so that
+they can be quickly assigned to the "right queue."  This is especially
 important with the rising popularity of encrypted and multiplexed transports,
 which has the potential of increasing the cost/accuracy ratio of DPI-based
-classification over the acceptable threshold. Second, the signal must be such
+classification over the acceptable threshold.  Second, the signal must be such
 that a malicious or badly configured nodes can't abuse it.  Today's mobile
 networks take a rather extreme posture in this respect by actively discarding
 (remarking or bleaching {{Custura}}) DiffServ signalling coming from an
-interconnect, therefore the signal must be modelled in a way that the mobile
-network can trust it or, ideally, avoid the need of trusting it altogether.
-The Rate-Delay trade-off {{Podlesny}} satisfies the above requirement and has
-been shown {{Fossati}} to integrate well with a simplified LTE QoS setup that
-uses one dedicated low-latency bearer in addition to the default.
+interconnect.  Therefore, the signal must be modelled in a way that the mobile
+network can either trust it or, even better, avoid the need of trusting it in
+the first place.  The Rate-Delay trade-off {{Podlesny}} satisfies the above
+requirements and has been shown {{Fossati}} to integrate well with a
+simplified LTE QoS setup that uses one dedicated low-latency bearer in
+addition to the default.
 
-This document suggests reusing the Non Queue Building signalling protocol
-described in {{I-D.white-tsvwg-nqb}}, as the method used by endpoints to mark
-their real-time flows and by the LTE network to use the marking to route these
-flows through a suitable (low-latency) bearer through the LTE core and air
-interface.
+This document suggests reusing the Non Queue Building (NQB) signalling
+protocol described in {{I-D.white-tsvwg-nqb}} as the method employed by
+endpoints to mark their real-time flows and by the LTE network to classify and
+route these flows via a suitable (low-latency) bearer through the LTE core and
+air interface.
 
 # Terminology
 
@@ -138,24 +140,26 @@ interface.
 
 # DiffServ Code
 
-Given the semantic equivalence of LoLa and the Non Queue Building (NQB) PHB,
-this document reuses the NQB DSCP as-is.
+Given the semantic equivalence of a Loss-Latency trade-off with the Non Queue
+Building (NQB) behaviour, this document reuses the NQB DSCP as-is.
 
 # Marking
 
 Endpoints SHOULD mark packets that are latency sensitive using the NQB DSCP.
 
-Note that the marking could also be added just before the packet enters the
-LTE core, for example by a classifier in the SGi-LAN.  This has the
-disadvantage of working only for downlink.
+Note that the marking could also be added by the path before the packet enters
+the LTE core, for example by a classifier in the SGi-LAN.  The disadvantage of
+this approach is that it only works for downlink flows, but it might be the
+only way to benefit flows that are not marked by the sending endpoint.
 
 # Mobile Network Behaviour
 
 The Mobile network is configured to give UEs a dedicated low-latency EPS
-bearer using QCI 7 in addition to the default EPS bearer.
+bearer with QCI 7 in addition to the default EPS bearer.
 
 A packet carrying the NQB DSCP SHOULD be routed through the dedicated
-low-latency EPS bearer.
+low-latency EPS bearer.  A packet that has no associated NQB marking SHOULD be
+routed through the default EPS bearer.
 
 # On Remarking and Bleaching
 
