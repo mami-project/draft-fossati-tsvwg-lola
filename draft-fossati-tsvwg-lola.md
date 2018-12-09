@@ -108,7 +108,7 @@ to have lost power and it looks like the incentives are now aligned towards
 allowing a more suitable treatment of Internet real-time flows.  However, a
 couple of preconditions need to be satisfied before we can move on from the
 status quo.  First, the real-time flows must be efficiently identified so that
-they can be quickly assigned to the "right queue."  This is especially
+they can be quickly assigned to the "right" EPS bearer.  This is especially
 important with the rising popularity of encrypted and multiplexed transports,
 which has the potential of increasing the cost/accuracy ratio of DPI-based
 classification over the acceptable threshold.  Second, the signal must be such
@@ -125,16 +125,20 @@ addition to the default.
 This document suggests reusing the Non Queue Building (NQB) signalling
 protocol described in {{I-D.white-tsvwg-nqb}} as the method employed by
 endpoints to mark their real-time flows and by the LTE network to classify and
-route these flows via a suitable (low-latency) bearer through the LTE core and
-air interface.
+route these flows via a suitable (low-latency) bearer through the LTE core
+network and E-UTRAN.
 
 # Terminology
 
-- EPS: Evolved Packet System
-- LTE: Long Term Evolution
-- QCI: QoS Class Identifier
-- TFT: Traffic Flow Template
-- UE: User Equipment
+- EPS bearer: Evolved Packet System bearer, a virtual circuit with a given set
+  of QoS attributes which spans the entire mobile network including the LTE
+  core and E-UTRAN segments;
+- LTE: 3GPP Long Term Evolution, aka 4G;
+- E-UTRAN: LTE Radio Access Network;
+- QCI: QoS Class Identifier.  In LTE networks, EPS bearers are partitioned
+  into equivalency classes modulo the QoS treatment they receive;
+- UE: User Equipment, any device (e.g., smartphone, laptop, tablet) attached
+  to an LTE network.
 
 {::boilerplate bcp14}
 
