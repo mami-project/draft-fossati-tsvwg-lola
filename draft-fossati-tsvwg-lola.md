@@ -45,6 +45,7 @@ informative:
           ins: M. Podlesny
         -
           ins: S. Gorinsky
+      seriesinfo: SIGCOMM
       date: 2008
     Custura:
       title: "Exploring DSCP modification pathologies in mobile edge networks"
@@ -55,6 +56,7 @@ informative:
           ins: A. Venne
         -
           ins: G. Fairhurst
+      seriesinfo: TMA
       date: 2017
     Shbair:
       title: "A Multi-Level Framework to Identify HTTPS Services"
@@ -67,6 +69,7 @@ informative:
           ins: J. Francois
         -
           ins: I. Chrisment
+      seriesinfo: NOMS
       date: 2016
     Fossati:
       title: "Loss Latency Tradeoff and the Mobile Network"
