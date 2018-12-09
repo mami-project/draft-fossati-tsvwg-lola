@@ -115,7 +115,7 @@ they can be quickly assigned to the "right" EPS bearer.  This is especially
 important with the rising popularity of encrypted and multiplexed transports,
 which has the potential of increasing the cost/accuracy ratio of DPI-based
 classification over the acceptable threshold.  Second, the signal must be such
-that a malicious or badly configured nodes can't abuse it.  Today's mobile
+that malicious or badly configured nodes can't abuse it.  Today's mobile
 networks take a rather extreme posture in this respect by actively discarding
 (remarking or bleaching {{Custura}}) DiffServ signalling coming from an
 interconnect.  Therefore, the signal must be modelled in a way that the mobile
@@ -157,7 +157,7 @@ Endpoints SHOULD mark packets that are latency sensitive using the NQB DSCP.
 Note that the marking could also be added by the path before the packet enters
 the LTE core, for example by a classifier in the SGi-LAN.  The disadvantage of
 this approach is that it only works for downlink flows, but it might be the
-only way to benefit flows that are not marked by the sending endpoint.
+only way to benefit flows that are not marked by their sending endpoint.
 
 # Mobile Network Behaviour
 
@@ -204,7 +204,7 @@ this document might be used to improve the precision of the classifier.
 
 We would like to thank the authors of the "Latency Loss Tradeoff PHB Group"
 {{I-D.you-tsvwg-latency-loss-tradeoff}} draft: Jianjie You, Michael Welzl,
-Brian Trammell and Kevin Smith.  A big thank you Chris Seal, Dan Druta, Diego
+Brian Trammell and Kevin Smith.  Big thanks to Chris Seal, Dan Druta, Diego
 Lopez, Shamit Bhat, Georg Mayer, Florin Baboescu, James Gruessing for the
 help.
 
