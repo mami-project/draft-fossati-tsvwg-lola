@@ -95,8 +95,7 @@ through a dedicated, non-GBR, low-latency bearer - e.g., one with QCI 7 -
 instead of the default EPS bearer.  The suggested scheme re-uses NQB, a
 DiffServ-based signalling scheme with compatible semantics that has been
 recently introduced in the context of fixed access to allow differential
-treatment of non-queue building vs queue building flows
-{{I-D.white-tsvwg-nqb}}.
+treatment of non-queue building vs queue building flows.
 
 --- middle
 
