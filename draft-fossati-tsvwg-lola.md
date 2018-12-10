@@ -102,27 +102,26 @@ treatment of non-queue building vs queue building flows.
 # Introduction
 
 Today's mobile networks are configured to bundle all flows to and from the
-Internet into a single "default" EPS bearer whose buffering characteristics
-are not compatible with low-latency traffic.  The established behaviour is
-partly rooted in the desire to prioritise operators' voice services over
-competing over-the-top services.  Of late, said business consideration seems
-to have lost power and it looks like the incentives are now aligned towards
-allowing a more suitable treatment of Internet real-time flows.  However, a
-couple of preconditions need to be satisfied before we can move on from the
-status quo.  First, the real-time flows must be efficiently identified so that
-they can be quickly assigned to the "right" EPS bearer.  This is especially
-important with the rising popularity of encrypted and multiplexed transports,
-which has the potential of increasing the cost/accuracy ratio of DPI-based
-classification over the acceptable threshold.  Second, the signal must be such
-that malicious or badly configured nodes can't abuse it.  Today's mobile
-networks take a rather extreme posture in this respect by actively discarding
-(remarking or bleaching {{Custura}}) DiffServ signalling coming from an
-interconnect.  Therefore, the signal must be modelled in a way that the mobile
-network can either trust it or, even better, avoid the need of trusting it in
-the first place.  The Rate-Delay trade-off {{Podlesny}} satisfies the above
-requirements and has been shown {{Fossati}} to integrate well with a
-simplified LTE QoS setup that uses one dedicated low-latency bearer in
-addition to the default.
+Internet into a single "default" EPS bearer whose buffering characteristics are
+not compatible with low-latency traffic.  The established behaviour is partly
+rooted in the desire to prioritise operators' voice services over competing
+over-the-top services.  Of late, said business consideration seems to have lost
+momentum and the incentives might now be aligned towards allowing a more
+suitable treatment of Internet real-time flows.  However, a couple of
+preconditions need to be satisfied before we can move on from the status quo.
+First, the real-time flows must be efficiently identified so that they can be
+quickly assigned to the "right" EPS bearer.  This is especially important with
+the rising popularity of encrypted and multiplexed transports, which has the
+potential of increasing the cost/accuracy ratio of DPI-based classification
+over the acceptable threshold.  Second, the signal must be such that malicious
+or badly configured nodes can't abuse it.  Today's mobile networks take a
+rather extreme posture in this respect by actively discarding (remarking or
+bleaching {{Custura}}) DiffServ signalling coming from an interconnect.
+Therefore, the signal must be modelled in a way that the mobile network can
+either trust it or, even better, avoid the need of trusting it in the first
+place.  The Rate-Delay trade-off {{Podlesny}} satisfies the above requirements
+and has been shown {{Fossati}} to integrate well with a simplified LTE QoS
+setup that uses one dedicated low-latency bearer in addition to the default.
 
 This document suggests reusing the Non Queue Building (NQB) signalling
 protocol described in {{I-D.white-tsvwg-nqb}} as the method employed by
