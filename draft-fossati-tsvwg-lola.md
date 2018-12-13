@@ -37,7 +37,6 @@ normative:
     I-D.white-tsvwg-nqb:
 
 informative:
-    I-D.you-tsvwg-latency-loss-tradeoff:
     Podlesny:
       title: "Rd Network Services: Differentiation Through Performance Incentives"
       author:
@@ -206,10 +205,9 @@ used to improve the precision of the classifier.
 # Acknowledgments
 
 We would like to thank the authors of the "Latency Loss Tradeoff PHB Group"
-{{I-D.you-tsvwg-latency-loss-tradeoff}} draft: Jianjie You, Michael Welzl,
-Brian Trammell and Kevin Smith.  Big thanks to Chris Seal, Dan Druta, Diego
-Lopez, Shamit Bhat, Georg Mayer, Florin Baboescu, James Gruessing for the
-help.
+draft: Jianjie You, Michael Welzl, Brian Trammell and Kevin Smith.  Big thanks
+to Chris Seal, Dan Druta, Diego Lopez, Shamit Bhat, Georg Mayer, Florin
+Baboescu, James Gruessing for the help.
 
 This work is partially supported by the European Commission under Horizon 2020
 grant agreement no. 688421 Measurement and Architecture for a Middleboxed
