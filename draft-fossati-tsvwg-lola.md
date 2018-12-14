@@ -159,8 +159,8 @@ Endpoints SHOULD mark packets that belong to the Best Effort class and
 are latency sensitive by assigning the NQB DSCP value to the DS field.
 
 The marking could also be added to other BE traffic by the network before the
-packet enters the LTE core, for example by a classifier in the SGi-LAN.  Note
-that this approach would only work for downlink flows.
+packet enters the mobile domain, for example by a classifier in the SGi-LAN or
+by an LTE router.
 
 # Relationship to a Mobile DiffServ Domain
 
