@@ -89,37 +89,38 @@ informative:
 This document proposes a marking scheme for tagging low-latency flows (for
 example: interactive voice and video, gaming, machine to machine applications)
 that is safe to use by the mobile network for matching such flows to suitable
-per-hop behaviors (EPS bearers in 3GPP lingo) in its core and radio segments.
-The suggested scheme re-uses NQB, a DiffServ-based signalling scheme with
-compatible rate-delay trade-off semantics that has been recently introduced in
-the context of fixed access to allow differential treatment of non-queue
-building vs queue building flows.
+per-hop behaviors (EPS bearers defined by 3GPP) in its core and radio
+segments.  The suggested scheme re-uses NQB, a DiffServ-based signalling
+scheme with compatible rate-delay trade-off semantics that has been recently
+introduced in the context of fixed access to allow differential treatment of
+non-queue building vs queue building flows.
 
 --- middle
 
 # Introduction
 
 Today's mobile networks are configured to bundle all flows to and from the
-Internet into a single "default" EPS bearer whose buffering characteristics are
-not compatible with low-latency traffic.  The established behaviour is partly
-rooted in the desire to prioritise operators' voice services over competing
-over-the-top services.  Of late, said business consideration seems to have lost
-momentum and the incentives might now be aligned towards allowing a more
-suitable treatment of Internet real-time flows.  However, a couple of
+Internet into a single "default" EPS bearer whose buffering characteristics
+are not compatible with low-latency traffic.  The established behaviour is
+partly rooted in the desire to prioritise operators' voice services over
+competing over-the-top services.  Of late, said business consideration seems
+to have lost momentum and the incentives might now be aligned towards allowing
+a more suitable treatment of Internet real-time flows.  However, a couple of
 preconditions need to be satisfied before we can move on from the status quo.
 First, the real-time flows must be efficiently identified so that they can be
 quickly assigned to the "right" EPS bearer.  This is especially important with
 the rising popularity of encrypted and multiplexed transports, which has the
-potential of increasing the cost/accuracy ratio of DPI-based classification
-over the acceptable threshold.  Second, the signal must be such that malicious
-or badly configured nodes can't abuse it.  Today's mobile networks take a
-rather extreme posture in this respect by actively discarding (remarking or
-bleaching {{Custura}}) DiffServ signalling coming from an interconnect.
-Therefore, the signal must be modelled in a way that the mobile network can
-either trust it or, even better, avoid the need of trusting it in the first
-place.  The Rate-Delay trade-off {{Podlesny}} satisfies the above requirements
-and has been shown {{Fossati}} to integrate well with a simplified LTE QoS
-setup that uses one dedicated low-latency bearer in addition to the default.
+potential of increasing the cost/accuracy ratio of Multi-Field (MF) based
+classification over the acceptable threshold.  Second, the signal must be such
+that malicious or badly configured nodes can't abuse it.  Today's mobile
+networks take a rather extreme posture in this respect by actively discarding
+(remarking or bleaching {{Custura}}) DiffServ signalling coming from an
+interconnect.  Therefore, the signal must be modelled in a way that the mobile
+network can either trust it or, even better, avoid the need of trusting it in
+the first place.  The Rate-Delay trade-off {{Podlesny}} satisfies the above
+requirements and has been shown {{Fossati}} to integrate well with a
+simplified LTE QoS setup that uses one dedicated low-latency bearer in
+addition to the default.
 
 This document suggests reusing the Non Queue Building (NQB) signalling
 protocol described in {{I-D.white-tsvwg-nqb}} as the method employed by
@@ -158,9 +159,10 @@ Building (NQB) behaviour, this document reuses the NQB DSCP (Section 4 of
 Endpoints SHOULD mark packets that belong to the Best Effort class and
 are latency sensitive by assigning the NQB DSCP value to the DS field.
 
-The marking could also be added to other BE traffic by the network before the
-packet enters the mobile domain, for example by a classifier in the SGi-LAN or
-by an LTE router.
+The marking could also be added to other BE traffic if the default class could
+be reclassified by the network to use the NQB DSCP before the packet enters
+the mobile domain - for example by a classifier in the SGi-LAN or in an LTE
+router.
 
 # Relationship to a Mobile DiffServ Domain
 
@@ -173,10 +175,12 @@ routed through the default EPS bearer.
 
 # On Remarking and Bleaching
 
-NQB marking associated with uplink traffic SHOULD be preserved when forwarding
-via an interconnect.  In fact, NQB has end-to-end semantics and might be used
-by other path elements if the bottleneck link happens to be located somewhere
-else than the mobile access.
+NQB markings SHOULD be preserved when forwarding via an interconnect.
+
+The NQB DSCP can have end-to-end semantics and this might benefit any
+NQB-marked traffic if utilised by other path elements (e.g. allowing DS
+treatment if a bottleneck link happens to be in the part of the path outisde
+the mobile access network segment).
 
 # IANA Considerations
 
